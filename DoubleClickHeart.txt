@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Double Click Heart</title>
+</head>
+<body>
+    <style>
+        .heart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            width: 100%;
+            height: 600px;
+        }
+
+        .heading {
+            font-size: 50px;
+        }
+
+        .time {
+            font-size: 30px;
+            color: chocolate;
+        }
+
+        .image {
+            cursor: pointer;
+        }
+
+        .heart {
+            position: absolute;
+            top: 55%;
+            font-size: 70px;
+            color: red;
+            /* visibility: hidden; */
+            display: none;
+            /* animation: heart 3s forwards; */
+        }
+        .heartshow{
+            visibility: visible;
+        }
+
+        /* @keyframes heart {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        } */
+    </style>
+    <div class="heart-container">
+        <div class="img">
+            <h1 class="heading">Afzal Ashraf</h1>
+            <p class="time">You Click Any time</p>
+            <img class="image" src="images.jpg" alt="" srcset="">
+            <div class="heart">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let paragraph = document.querySelector(".time");
+        let imageheart = document.querySelector(".image");
+        let hearts = document.querySelector(".heart");
+        let clickcounter = 0;
+
+        imageheart.addEventListener("dblclick", function () {
+            clickcounter++;
+            paragraph.innerHTML = `You Click ${clickcounter} times.`;
+            
+        
+            // hearts.classList.add("heartshow")
+            hearts.style.display = "block";
+            hearts.style.opacity = "1";
+
+           
+            setTimeout(() => {
+                hearts.style.display = "none";
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
+
+
+
